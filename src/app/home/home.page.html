@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Application Settings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="ion-padding">
+  <ion-toggle [(ngModel)]="option1" (ionChange)="setPreference()">Option 1</ion-toggle><br /><br />
+  <ion-toggle [(ngModel)]="option2" (ionChange)="setPreference()">Option 2</ion-toggle><br /><br />
+  <ion-toggle [(ngModel)]="option3" (ionChange)="setPreference()">Option 3</ion-toggle><br /><br />
+  <ion-range [(ngModel)]="rangeVal" (ionChange)="setPreference()" labelPlacement="start" label="Range Value: {{ rangeVal }}" (ionChange)="onIonChange($event)"></ion-range><br />
+  <ion-checkbox [(ngModel)]="checkbox1" (ionChange)="setPreference()" labelPlacement="end">Checkbox 1</ion-checkbox><br /><br />
+  <ion-checkbox [(ngModel)]="checkbox2" (ionChange)="setPreference()" labelPlacement="end">Checkbox 2</ion-checkbox><br /><br />
+  <ion-checkbox [(ngModel)]="checkbox3" (ionChange)="setPreference()" labelPlacement="end">Checkbox 3</ion-checkbox><br /><br />
+  <ion-radio-group [(ngModel)]="radioValue" (ionChange)="setPreference()">
+    <ion-radio labelPlacement="end">Radio Option 1</ion-radio><br /><br />
+    <ion-radio labelPlacement="end">Radio Option 2</ion-radio><br /><br />
+  </ion-radio-group>
+  <ion-button expand="block" (click)="clearPreferences()">RESET ALL SETTINGS</ion-button>
 </ion-content>
